@@ -32,6 +32,7 @@ audioElement.addEventListener("ended", onEnd);
 audioElement.addEventListener("canplay", setDuration);
 
 seekbar.addEventListener("input", onSeek);
+volumeBar.addEventListener("input", onVolumeSeek);
 
 const source = audioCtx.createMediaElementSource(audioElement);
 const analyser = audioCtx.createAnalyser();
@@ -102,4 +103,8 @@ function onEnd() {
 
 function onSeek(event) {
   audioElement.currentTime = event.target.value;
+}
+
+function onVolumeSeek(event) {
+  audioElement.volume = event.target.value / 100;
 }
