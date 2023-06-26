@@ -6,8 +6,42 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #333333;
 }
-
+.input {
+    position: fixed;
+    top: 20%;
+}
 audio{
     display: none;
+}
+
+.play-pause {
+    border: none;
+    background: transparent;
+    color: #10AEF5;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls {
+    width: 480px;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;;
+}
+
+.audio-player{
+    background: #020202;
+    padding: 20px;
+    border-radius: 9px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.white {
+    color : #fff;
 }
