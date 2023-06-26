@@ -8,7 +8,7 @@ document
   .getElementById("audioFile")
   .addEventListener("change", handleAudioFile, false);
 
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const audioCtx = new (window.AudioContext || window.AudioContext)();
 const audioElement = document.querySelector("audio");
 const canvasElement = document.querySelector("canvas");
 const canvasCtx = canvasElement.getContext("2d");
@@ -26,6 +26,12 @@ seekbar.value = 0;
 volumeBar.value = 100;
 
 playPauseButton.addEventListener("click", togglePlayPause);
+
+audioElement.addEventListener("timeupdate", setProgress);
+audioElement.addEventListener("ended", onEnd);
+audioElement.addEventListener("canplay", setDuration);
+
+seekbar.addEventListener("input", onSeek);
 
 const source = audioCtx.createMediaElementSource(audioElement);
 const analyser = audioCtx.createAnalyser();
@@ -77,4 +83,23 @@ function togglePlayPause() {
     }
     audioState.isPaused = !audioState.isPaused;
   });
+}
+
+function setProgress() {
+  seekbar.value = audioElement.currentTime;
+}
+
+function setDuration() {
+  seekbar.max = audioElement.duration;
+}
+
+function onEnd() {
+  playPauseButton.innerHTML = replayIcon;
+  audioElement.currentTime = 0;
+  seekbar.value = 0;
+  audioState.isReplay = true;
+}
+
+function onSeek(event) {
+  audioElement.currentTime = event.target.value;
 }
