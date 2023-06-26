@@ -5,13 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>Audio Visualizer</title>
   </head>
   <body>
-    <input type="file" class="input" />
+    <input type="file" id="audioFile" class="input" />
     <audio id="audio" controls>
-      <source src="" />
+      <source src="" id="audio_src" />
     </audio>
+    <!--controls-->
+    <div class="audio-player">
+      <canvas height="100" width="480"></canvas>
+      <div class="controls">
+        <button class="play-pause">
+          <span class="material-icons">play_arrow</span>
+        </button>
+        <input type="range" class="seekbar" />
+        <span class="material-icons white"> volume_down</span>
+        <input type="range" class="volume" />
+      </div>
+    </div>
+    <script src="index.js"></script>
   </body>
-  <script src="index.js"></script>
 </html>
