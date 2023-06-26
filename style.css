@@ -8,6 +8,12 @@ body{
     align-items: center;
     background-image: url("AV-image.webp");
 }
+h2{
+    position: fixed;
+    top: 7%;
+    left: 40%;
+    font-family: 'Times New Roman', Times, serif;
+}
 .input {
     position: fixed;
     top: 20%;
